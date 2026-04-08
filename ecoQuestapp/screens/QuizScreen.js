@@ -3,8 +3,9 @@ import {
   View, Text, StyleSheet, TouchableOpacity,
   ActivityIndicator, ScrollView,
 } from 'react-native';
+import Constants from 'expo-constants';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = Constants.expoConfig?.extra?.apiUrl || process.env.API_URL || 'http://localhost:8080/api';
 
 export default function QuizScreen({ navigation }) {
   const [questions, setQuestions] = useState([]);
